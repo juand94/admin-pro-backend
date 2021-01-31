@@ -82,6 +82,7 @@ const actualizarHospital = async(req, res = response) => {
 
 const borrarHospital = async(req, res = response) => {
 
+
     const id = req.params.id;
     const uid = req.uid;
 
@@ -95,13 +96,15 @@ const borrarHospital = async(req, res = response) => {
                 msg: 'Hospital no encontrado por id'
             });
         } else {
-
-            const HospitalBorrar = await Hospital.findOneAndDelete(id);
+            //console.log(id);
+            //const hospitalBorrar = await Hospital.findOneAndDelete(id);
+            const hospitalBorrar = await Hospital.findByIdAndDelete(id);
+            //console.log(hospitalBorrar);
 
             res.json({
                 ok: true,
                 msg: 'borrarHospital',
-                HospitalBorrar
+                hospitalBorrar
             });
         }
 

@@ -44,7 +44,8 @@ const getDocumentosColeccion = async(req, res = response) => {
                 .populate('usuario', 'nombre img');
             break;
         case 'usuarios':
-            data = await Usuario.find({ nombre: regex });
+            data = await Usuario.find({ email: regex });
+            console.log(data);
             break;
 
         default:
